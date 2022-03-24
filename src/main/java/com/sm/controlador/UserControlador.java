@@ -38,6 +38,7 @@ public class UserControlador {
 	public void modificar(@RequestBody User us) {
 		interfaceUser.save(us);
 	}
+	
 	@DeleteMapping(value="/{id}")
 	public void eliminar(@PathVariable("id") Integer id) {
 		interfaceUser.deleteById(id);

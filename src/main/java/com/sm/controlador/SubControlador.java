@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sm.modelos.Sub;
 import com.sm.repositorio.InterfaceSub;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/Sub")
 public class SubControlador {
@@ -24,6 +23,7 @@ public class SubControlador {
 	@Autowired
 	private InterfaceSub interfaceSub;
 	
+	//@CrossOrigin(origins = "http://localhost:3000", maxAge = 3600)
 	@GetMapping
 	public List<Sub> usuarios(){
 		return (List<Sub>) interfaceSub.findAll();
@@ -38,8 +38,16 @@ public class SubControlador {
 	public void modificar(@RequestBody Sub us) {
 		interfaceSub.save(us);
 	}
+	
 	@DeleteMapping(value="/{id}")
 	public void eliminar(@PathVariable("id") Integer id) {
 		interfaceSub.deleteById(id);
-	}	
+	}
+	
+	/*@GetMapping(value="/{id}")
+	public void usuariosId(@PathVariable ("id") Integer id) {
+		interfaceSub.findById(id);
+		//System.out.println("Hola MUNDO");
+		//System.out.println(id);
+	}	*/
 }
