@@ -13,33 +13,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sm.modelos.User;
-import com.sm.repositorio.InterfaceUsuario;
+import com.sm.modelos.Sub;
+import com.sm.repositorio.InterfaceSub;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/User")
-public class UserControlador {
+@RequestMapping("/Sub")
+public class SubControlador {
 
 	@Autowired
-	private InterfaceUsuario interfaceUser;
+	private InterfaceSub interfaceSub;
 	
 	@GetMapping
-	public List<User> usuarios(){
-		return (List<User>) interfaceUser.findAll();
+	public List<Sub> usuarios(){
+		return (List<Sub>) interfaceSub.findAll();
 	}
 	
 	@PostMapping
-	public void insertar(@RequestBody User us) {
-		interfaceUser.save(us);
+	public void insertar(@RequestBody Sub us) {
+		interfaceSub.save(us);
 	}
 	
 	@PutMapping
-	public void modificar(@RequestBody User us) {
-		interfaceUser.save(us);
+	public void modificar(@RequestBody Sub us) {
+		interfaceSub.save(us);
 	}
 	@DeleteMapping(value="/{id}")
 	public void eliminar(@PathVariable("id") Integer id) {
-		interfaceUser.deleteById(id);
+		interfaceSub.deleteById(id);
 	}	
 }
