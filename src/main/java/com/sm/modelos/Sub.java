@@ -1,9 +1,17 @@
 package com.sm.modelos;
 
+import java.text.DateFormat;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name="cat_subs", catalog="subscriptormanager", schema="")
@@ -20,7 +28,17 @@ public class Sub {
 	private String sub_apellido;
 	@Column
 	private String sub_correo;
+	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(iso = ISO.DATE)
+	@Column
+	private Date sub_fecha;
 	
+	public Date getSub_fecha() {
+		return sub_fecha;
+	}
+	public void setSub_fecha(Date sub_fecha) {
+		this.sub_fecha = sub_fecha;
+	}
 	public Integer getIdsub() {
 		return idsub;
 	}
