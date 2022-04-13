@@ -29,6 +29,11 @@ public class SubControlador {
 		return (List<Sub>) interfaceSub.findAll();
 	}
 	
+	@GetMapping(value="/{id}")
+	public void IdUsuarios(@PathVariable("id") Integer id) {
+		interfaceSub.findById(id);
+	}
+	
 	@PostMapping
 	public void insertar(@RequestBody Sub us) {
 		interfaceSub.save(us);
