@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user", catalog="subscriptormanager", schema="")
+@Table(name="cat_usr", catalog="subscriptormanager", schema="")
 public class User {
 
 	@Id
